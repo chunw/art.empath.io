@@ -9,6 +9,9 @@ client = MongoClient(MONGO_URL)
 
 app = Flask(__name__)
 db = client.heroku_x9wjh6t4
+database_user = "heroku_x9wjh6t4"
+database_pass = "fn8rhjvkf83rbjkjaeqn62igjr"
+db.authenticate(database_user, database_pass)
 collection = db.shoutouts
 
 #app = Flask(name)

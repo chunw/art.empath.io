@@ -5,7 +5,9 @@ body {
   background-color: #ccc; }
 
 #container {
-  margin-top: 660px;
+  margin-top: 1400px;
+  text-align: center;
+  width: 100%;
 }
 
 .system_info {

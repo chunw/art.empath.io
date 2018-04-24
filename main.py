@@ -6,6 +6,10 @@ from pymongo import MongoClient
 MONGO_URI = "mongodb://heroku_x9wjh6t4:fn8rhjvkf83rbjkjaeqn62igjr@ds127982.mlab.com:27982/heroku_x9wjh6t4"
 client = MongoClient(MONGO_URI)
 db = client['heroku_x9wjh6t4']
+
+#client = MongoClient() # local database at default port
+#db = client['shoutouts']
+
 collection = db.shoutouts
 
 app = Flask(__name__)

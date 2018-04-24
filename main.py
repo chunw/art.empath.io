@@ -4,16 +4,17 @@ import pymongo
 from pymongo import MongoClient
 
 #MONGO_URL = os.environ.get('MONGOHQ_URL')
-MONGO_URL = "mongodb://heroku_x9wjh6t4:fn8rhjvkf83rbjkjaeqn62igjr@ds127982.mlab.com:27982"
+MONGO_URL = "mongodb://heroku_x9wjh6t4:fn8rhjvkf83rbjkjaeqn62igjr@ds127982.mlab.com:27982/heroku_x9wjh6t4"
 client = MongoClient(MONGO_URL)
+db = client['heroku_x9wjh6t4']
 
-app = Flask(__name__)
-db = client.heroku_x9wjh6t4
-database_user = "heroku_x9wjh6t4"
-database_pass = "fn8rhjvkf83rbjkjaeqn62igjr"
-db.authenticate(database_user, database_pass)
+#db = client.heroku_x9wjh6t4
+#database_user = "heroku_x9wjh6t4"
+#database_pass = "fn8rhjvkf83rbjkjaeqn62igjr"
+#db.authenticate(database_user, database_pass)
 collection = db.shoutouts
 
+app = Flask(__name__)
 #app = Flask(name)
 
 @app.route("/", methods=['GET'])

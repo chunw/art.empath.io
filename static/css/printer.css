@@ -1,8 +1,12 @@
+html {
+  background-color: #ccc;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "arial rounded mt bold";
-  background-color: #ccc; }
+}
 
 #container {
   margin-top: 527px;

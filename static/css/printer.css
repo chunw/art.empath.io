@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "arial rounded mt bold";
+  background-color: #ccc; }
+
+.system_info {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 200px;
+  color: #999;
+  text-align: center; }
+  .system_info h1 {
+    margin: 0 0 10px 0; }
+  .system_info img {
+    width: 100%;
+    margin-bottom: 10px; }
+  .system_info a {
+    position: relative; }
+
+.info, .controls {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  width: 200px;
+  padding: 1em; }
+
+.info {
+  background-color: #eee; }
+
+.controls a {
+  color: #999; }
+
+header {
+  font-size: 14px;
+  padding-bottom: 2px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  overflow: auto; }
+  header p {
+    padding: 0;
+    margin: 0; }
+    header p.date {
+      float: left; }
+    header p.timestamp {
+      float: right; }
+
+.content {
+  /*  -webkit-font-smoothing: none;*/
+  width: 384px;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: white;
+  font-size: 22px; }
+  .content .explanation h1 {
+    font-size: 52px;
+    margin: 10px 0; }
+  .content .explanation h2 {
+    margin: 10px 0; }
+  .content .explanation p, .content .explanation ul {
+    font-size: 18px;
+    font-weight: normal; }
+  .content .explanation pre {
+    font-size: 16px;
+    word-wrap: break-word; }
+
+.paper {
+  background-color: white;
+  width: 440px;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  margin: 30px auto;
+  box-shadow: 10px 10px 5px rgba(40, 40, 40, 0.5); }
+
+.loading {
+  text-align: center;
+  font-size: 32px; }
+  .loading .refresh {
+    margin: 2em 0 0 0;
+    font-size: 16px; }
+
+.paper.scrollprinter {
+  margin-top: 10em;
+  margin-bottom: 10em; }
+
+.printerfront, .printerback {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 200px; }
+  .printerfront .drawing, .printerback .drawing {
+    width: 600px;
+    margin: 0 auto; }
+    .printerfront .drawing canvas, .printerback .drawing canvas {
+      width: 600px; }
+
+.printerback {
+  z-index: -1; }
+
+.printerfront {
+  z-index: 1000; }
+
+.test_page .print_url {
+  font-size: 14px; }
+
+.my_printer .print_url {
+  font-size: 12px; }
+.my_printer label, .my_printer input, .my_printer textarea {
+  display: block;
+  font-weight: normal;
+  font-size: 14px; }
+.my_printer input[type=text], .my_printer textarea {
+  width: 97%; }
+.my_printer textarea {
+  height: 100px; }
+
+.paper.archive {
+  padding: 25px 0; }
+
+.metadata, .pagination {
+  background-color: transparent;
+  font-size: 14px; }
+
+.pagination {
+  margin-bottom: 3em;
+  margin-top: 3em; }
+
+.metadata {
+  margin-top: 40px;
+  margin-bottom: -20px;
+  color: #999; }

@@ -139,6 +139,11 @@ input[type=submit] {
   padding: 5px 15px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  width: 343px;
+  width: 382px;
   font-size: 18px;
+}
+
+textarea {
+  font-size: 18px;
+  font-family: "arial rounded mt bold";
 }

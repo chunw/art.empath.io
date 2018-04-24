@@ -4,6 +4,10 @@ body {
   font-family: "arial rounded mt bold";
   background-color: #ccc; }
 
+#container {
+  margin-top: 660px;
+}
+
 .system_info {
   position: fixed;
   top: 30px;

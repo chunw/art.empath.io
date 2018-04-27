@@ -3,6 +3,7 @@ $( document ).ready(function() {
 });
 
 function animateSlideOutOfBox() {
+  // init pos: 527px
   $('#container').animate({ 'margin-top': '-100px' }, 6000);
 }
 
@@ -19,8 +20,7 @@ function send() {
       },
       type : 'POST',
       url : '/post'
-    })
-    .done(function(data) {
+    }).done(function(data) {
       animateSlideIntoBox();
     });
 

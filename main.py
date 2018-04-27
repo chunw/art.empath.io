@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import pymongo
 from pymongo import MongoClient
 
@@ -28,7 +28,8 @@ def all():
 def post():
     shout = {"name":request.form['name'], "message":request.form['message']}
     shout_id = collection.insert(shout)
-    return redirect('/')
+    #shouts = collection.find()
+    return jsonify("")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

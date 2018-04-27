@@ -6,6 +6,7 @@
       <link rel="shortcut icon" href="static/assets/img/ic_printer_bw_nopin.png">
       <script src="{{ url_for('static', filename='javascript/jquery-3.2.1.min.js') }}"></script>
       <script src="{{ url_for('static', filename='javascript/printer.js') }}"></script>
+      <script src="{{ url_for('static', filename='javascript/app.js') }}"></script>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/printer.css') }}">
   </head>
   <body>
@@ -30,10 +31,10 @@
         <div class="explanation">
           <h1>Hello!</h1>
           <p>What does Mark Rothko's <i>No. 14</i> bring to your mind?  </p>
-          <form action="/post" method="post">
+          <form>
               <input style="display:none" type="text" name="name"/>
-              <textarea name="message" rows="10" cols="40"></textarea>
-              <input class="submit_button" type="submit" value="Send"/>
+              <textarea id="textarea" name="message" rows="10" cols="40"></textarea>
+              <input onclick="send()" class="submit_button" type="submit" value="Send"/>
           </form>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import os
+import random
 from flask import Flask, render_template, request, redirect, jsonify
 import pymongo
 from pymongo import MongoClient
@@ -28,8 +29,16 @@ def all():
 def post():
     shout = {"name":request.form['name'], "message":request.form['message']}
     shout_id = collection.insert(shout)
-    #shouts = collection.find()
     return jsonify("")
+
+@app.route("/random", methods=['GET'])
+def random_response():
+    shout = collection.find()[random.randrange(collection.count())]
+    rtn = "NO_RESPONSE"
+    while not shout[u'message']:
+        shout = collection.find_one()
+    rtn = shout[u'message']
+    return jsonify(rtn)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

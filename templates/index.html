@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <title>Art.io</title>
       <link rel="shortcut icon" href="static/assets/img/ic_printer_bw_nopin.png">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
       <script src="{{ url_for('static', filename='javascript/jquery-3.2.1.min.js') }}"></script>
       <script src="{{ url_for('static', filename='javascript/printer.js') }}"></script>
       <script src="{{ url_for('static', filename='javascript/app.js') }}"></script>
@@ -25,8 +26,8 @@
       <div class="paper scrollprinter">
         <div class="content">
         <header>
-          <p class="date">Monday 23 April 2018</p>
-          <p class="timestamp">Printed at 4:24pm</p>
+          <p class="date" id="date"></p>
+          <p class="timestamp">Printed at <span id="time"></span></p>
         </header>
         <div class="explanation">
           <h1>Hello!</h1>

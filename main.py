@@ -1,19 +1,22 @@
 import os
 import random
+import time
+import json
 from flask import Flask, render_template, request, redirect, jsonify
 import pymongo
 from pymongo import MongoClient
 
-MONGO_URI = "mongodb://heroku_x9wjh6t4:fn8rhjvkf83rbjkjaeqn62igjr@ds127982.mlab.com:27982/heroku_x9wjh6t4"
-client = MongoClient(MONGO_URI)
-db = client['heroku_x9wjh6t4']
+#MONGO_URI = "mongodb://heroku_x9wjh6t4:fn8rhjvkf83rbjkjaeqn62igjr@ds127982.mlab.com:27982/heroku_x9wjh6t4"
+#client = MongoClient(MONGO_URI)
+#db = client['heroku_x9wjh6t4']
 
-#client = MongoClient() # local database at default port
-#db = client['shoutouts']
+client = MongoClient() # local database at default port
+db = client['shoutouts']
 
 collection = db.shoutouts
 
 app = Flask(__name__)
+current_milli_time = lambda: int(round(time.time() * 1000))
 
 @app.route("/", methods=['GET'])
 def index():
@@ -27,7 +30,7 @@ def all():
 
 @app.route("/post", methods=['POST'])
 def post():
-    shout = {"name":request.form['name'], "message":request.form['message']}
+    shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime']}
     shout_id = collection.insert(shout)
     return jsonify("")
 
@@ -37,8 +40,23 @@ def random_response():
     rtn = "NO_RESPONSE"
     while not shout[u'message']:
         shout = collection.find_one()
-    rtn = shout[u'message']
-    return jsonify(rtn)
+    message = shout[u'message']
+    name = shout[u'name']
+    date = shout[u'date']
+    time = shout[u'time']
+    shout = {"name": name, "message": message, "date": date, "time": time}
+
+    return jsonify(shout)
+
+@app.route("/print", methods=['GET'])
+def printer_on():
+    ''' returns True if printer should start printing '''
+    sorted_list = db.shoutouts.find().sort('datetime', -1)
+    lastRecord = sorted_list[0]
+    timediff = current_milli_time() - int(lastRecord[u'datetime'])
+    printer_on = timediff <= 5000
+    return jsonify(printer_on)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

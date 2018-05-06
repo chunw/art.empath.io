@@ -3,14 +3,13 @@ $( document ).ready(function() {
 });
 
 function animateSlideOutOfBox() {
-  // init pos: 527px
   document.getElementById("date").textContent = getCurrentDate();
   document.getElementById("time").textContent = getCurrentTime();
-  $('#container').animate({ 'margin-top': '-100px' }, 6000);
+  $('#container').animate({ 'margin-top': '230px' }, 6000);
 }
 
 function animateSlideIntoBox() {
-  $('#container').animate({ 'margin-top': '550px' }, 3000);
+  $('#container').animate({ 'margin-top': '730px' }, 3000);
 }
 
 function getCurrentDate() {

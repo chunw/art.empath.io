@@ -39,6 +39,6 @@ function send() {
     setTimeout(() => {
       $("#textarea").val('');
       animateSlideOutOfBox();
-    }, 10000);
+    }, 20000);
   });
 }

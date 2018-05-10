@@ -8,6 +8,23 @@ body {
   font-family: "arial rounded mt bold";
 }
 
+.about {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  margin-top: 2em !important;
+}
+
+.col-30 {
+  display: inline-block;
+  width: 30%;
+}
+
+.col-70 {
+  display: inline-block;
+  width: 70%;
+}
+
 #container {
   margin-top: 615px;
   text-align: center;
@@ -71,6 +88,8 @@ header {
   .content .explanation p, .content .explanation ul {
     font-size: 18px;
     font-weight: normal; }
+    .content .explanation.small p, .content .explanation.small ul {
+      font-size: 15px;}
   .content .explanation pre {
     font-size: 16px;
     word-wrap: break-word; }

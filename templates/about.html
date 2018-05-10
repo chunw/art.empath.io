@@ -6,35 +6,33 @@
       <link rel="shortcut icon" href="static/assets/img/ic_printer_bw_nopin.png">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
       <script src="{{ url_for('static', filename='javascript/jquery-3.2.1.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='javascript/printer.js') }}"></script>
-      <script src="{{ url_for('static', filename='javascript/app.js') }}"></script>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/printer.css') }}">
   </head>
   <body>
     <div style="font-family: courier" class="container" id="container">
 
-      <div class="paper scrollprinter">
+      <div class="paper scrollprinter about">
         <div class="content">
-        <header>
-          <p class="date" id="date"></p>
-          <p class="timestamp">Printed at <span id="time"></span></p>
-        </header>
-        <div class="explanation small">
-          {% for shout in shouts %}
+          <header>
+            <p class="date" id="date"></p>
+            <p class="timestamp">Printed at <span id="time"></span></p>
+          </header>
+          <div class="explanation small">
             <div style="margin-top: 20px; font-size: 12px; text-align: left">
-              <p style="font-weight: bold">
-                <span>{{ shout.date }}</span>
-                <span style="float:right">{{ shout.time }}</span>
-              </p>
-              <p>{{ shout.name }} said:</p>
-              <p>{{ shout.message }}</p>
-              ----------------------------------------------------
-            </div>
-          {% endfor %}
 
+              <p style="font-weight: bold">
+                The Provenance
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div>
+
       </div>
+
+
     </div>
   </body>
 </html>

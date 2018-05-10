@@ -13,7 +13,9 @@ from pymongo import MongoClient
 client = MongoClient() # local database at default port
 db = client['shoutouts']
 
-collection = db.shoutouts
+collection = db.shoutouts # Rothko
+#collection = db.shoutout_mitchell
+#collection = db.shoutout_sculpture
 
 app = Flask(__name__)
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -27,6 +29,10 @@ def index():
 def all():
     shouts = collection.find()
     return render_template('all.html', shouts=shouts)
+
+@app.route("/about", methods=['GET'])
+def about():
+    return render_template('about.html')
 
 @app.route("/post", methods=['POST'])
 def post():

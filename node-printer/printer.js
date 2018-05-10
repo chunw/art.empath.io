@@ -58,7 +58,7 @@ serialPort.on("open", function() {
         serialPort.write(json.date + "           " + json.time + "\n\n");
 
         setTimeout(() => {
-          serialPort.write(json.name + " says: \n\n");
+          serialPort.write(json.name + " said: \n\n");
 
           setTimeout(() => {
             serialPort.write(json.message + "\n\n");

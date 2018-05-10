@@ -11,11 +11,10 @@ from pymongo import MongoClient
 #db = client['heroku_x9wjh6t4']
 
 client = MongoClient() # local database at default port
-db = client['shoutouts']
-
-collection = db.shoutouts # Rothko
-#collection = db.shoutout_mitchell
-#collection = db.shoutout_sculpture
+#db = client['shoutouts'] # Rothko
+#db = client['shoutout_mitchell']
+db = client['shoutout_poncet']
+collection = db.shoutouts
 
 app = Flask(__name__)
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -46,6 +45,21 @@ def random_response():
     rtn = "NO_RESPONSE"
     while not shout[u'message']:
         shout = collection.find_one()
+    message = shout[u'message']
+    name = shout[u'name']
+    date = shout[u'date']
+    time = shout[u'time']
+    shout = {"name": name, "message": message, "date": date, "time": time}
+
+    return jsonify(shout)
+
+@app.route("/random/<promptid>", methods=['GET'])
+def random_response2(promptid):
+    shout = collection.find()[random.randrange(collection.count())]
+    rtn = "NO_RESPONSE"
+    while not shout[u'message']:
+        shout = collection.find({"promptid" : promptid}).find_one()
+        #shout = collection.find_one()
     message = shout[u'message']
     name = shout[u'name']
     date = shout[u'date']

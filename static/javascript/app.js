@@ -4,7 +4,7 @@ $( document ).ready(function() {
 });
 
 function setupPrompt() {
-  // randomly pick a prompt and send prompt ID to database
+  // randomly pick a prompt
   var totalNumPrompt = 2;
 
   // Rothko
@@ -16,6 +16,12 @@ function setupPrompt() {
   var promptMap = {
     0: "<p>What does Joan Mitchell's <i>Before, Again IV</i> bring to your mind? </p>",
     1: "<p>Joan Mitchell painted <i>Before, Again IV</i> during her illness. Does this change how you perceive the piece?</p>"
+  };
+
+  // Poncet
+  var promptMap = {
+    0: "<p>What do you see in Antoine Poncet's <i>Retrofutee</i>?</p>",
+    1: "<p>What aspect of Antoine Poncet's <i>Retrofutee</i> do you find to be the most remarkable?</p>"
   };
 
   window.promptid = Math.floor(Math.random() * totalNumPrompt);

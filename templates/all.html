@@ -15,24 +15,21 @@
 
       <div class="paper scrollprinter">
         <div class="content">
-        <header>
-          <p class="date" id="date"></p>
-          <p class="timestamp">Printed at <span id="time"></span></p>
-        </header>
-        <div class="explanation small">
-          {% for shout in shouts %}
-            <div style="margin-top: 20px; font-size: 12px; text-align: left">
-              <p style="font-weight: bold">
-                <span>{{ shout.date }}</span>
-                <span style="float:right">{{ shout.time }}</span>
-              </p>
-              <p>{{ shout.name }} said:</p>
-              <p>{{ shout.message }}</p>
-              ----------------------------------------------------
-            </div>
-          {% endfor %}
 
-        </div>
+          <div class="explanation small">
+            {% for shout in shouts %}
+              <div style="margin-top: 20px; font-size: 12px; text-align: left">
+                <p style="font-weight: bold">
+                  <span>{{ shout.date }}</span>
+                  <span style="float:right">{{ shout.time }}</span>
+                </p>
+                <p>{{ shout.name }} said:</p>
+                <p>{{ shout.message }}</p>
+                ----------------------------------------------------
+              </div>
+            {% endfor %}
+
+          </div>
       </div>
       </div>
     </div>

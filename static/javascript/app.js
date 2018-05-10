@@ -15,10 +15,10 @@ function setupPrompt() {
   // Mitchell
   var promptMap = {
     0: "<p>What does Joan Mitchell's <i>Before, Again IV</i> bring to your mind? </p>",
-    1: "<p>Joan Mitchell painted this piece <i>Before, Again IV</i> during her illness. Does this change how you perceive the piece?</p>"
+    1: "<p>Joan Mitchell painted <i>Before, Again IV</i> during her illness. Does this change how you perceive the piece?</p>"
   };
 
-  window.promptid = Math.floor(Math.random() * (totalNumPrompt - 1));
+  window.promptid = Math.floor(Math.random() * totalNumPrompt);
   var div = document.createElement("div");
   div.innerHTML = promptMap[window.promptid];
   document.getElementById("prompt").append(div);

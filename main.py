@@ -35,7 +35,7 @@ def about():
 
 @app.route("/post", methods=['POST'])
 def post():
-    shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime']}
+    shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime'], "promptid" : request.form['promptid']}
     shout_id = collection.insert(shout)
     return jsonify("")
 
@@ -55,16 +55,14 @@ def random_response():
 
 @app.route("/random/<promptid>", methods=['GET'])
 def random_response2(promptid):
-    shout = collection.find()[random.randrange(collection.count())]
-    rtn = "NO_RESPONSE"
-    while not shout[u'message']:
-        shout = collection.find({"promptid" : promptid}).find_one()
-        #shout = collection.find_one()
+    filtered = list(db.shoutouts.find({"promptid" : promptid}))
+    shout = random.choice(filtered)
     message = shout[u'message']
     name = shout[u'name']
     date = shout[u'date']
     time = shout[u'time']
-    shout = {"name": name, "message": message, "date": date, "time": time}
+    promptid = shout[u'promptid']
+    shout = {"name": name, "message": message, "date": date, "time": time, "promptid": promptid}
 
     return jsonify(shout)
 

@@ -48,6 +48,7 @@ body {
 
 .info, .controls {
   position: fixed;
+  font-family: 'arial rounded mt bold';
   top: 30px;
   left: 20px;
   width: 200px;
@@ -179,4 +180,19 @@ input[type=submit] {
 textarea {
   font-size: 18px;
   font-family: "arial rounded mt bold";
+}
+
+.paper.scrollprinter.allresponses {
+  position: absolute;
+  top: 40px;
+  margin: auto;
+  overflow-y: scroll;
+  max-height: 600px;
+  margin-left: 500px;
+}
+
+.paper.scrollprinter.allresponses header {
+  font-size: 13px;
+  font-family: courier;
+  font-weight: bold;
 }

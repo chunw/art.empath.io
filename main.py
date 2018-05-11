@@ -12,9 +12,11 @@ from pymongo import MongoClient
 
 client = MongoClient() # local database at default port
 #db = client['shoutouts'] # Rothko
-#db = client['shoutout_mitchell']
-db = client['shoutout_poncet']
+db = client['shoutout_mitchell']
+#db = client['shoutout_poncet']
 collection = db.shoutouts
+
+prompt_id = "1"
 
 app = Flask(__name__)
 current_milli_time = lambda: int(round(time.time() * 1000))
@@ -37,6 +39,7 @@ def about():
 def post():
     shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime'], "promptid" : request.form['promptid']}
     shout_id = collection.insert(shout)
+    prompt_id = shout["promptid"]
     return jsonify("")
 
 @app.route("/random", methods=['GET'])
@@ -65,6 +68,11 @@ def random_response2(promptid):
     shout = {"name": name, "message": message, "date": date, "time": time, "promptid": promptid}
 
     return jsonify(shout)
+
+@app.route("/promptid", methods=['GET'])
+def promptid():
+    print(prompt_id)
+    return jsonify(prompt_id)
 
 @app.route("/print", methods=['GET'])
 def printer_on():

@@ -12,16 +12,15 @@ function setupPrompt() {
     0: "<p>What does Mark Rothko's <i>No. 14</i> bring to your mind? </p>",
   };
 
-  // Mitchell
-  var promptMap = {
-    0: "<p>What does Joan Mitchell's <i>Before, Again IV</i> bring to your mind? </p>",
-    1: "<p>Joan Mitchell painted <i>Before, Again IV</i> during her illness. Does this change how you perceive the piece?</p>"
-  };
-
   // Poncet
   var promptMap = {
     0: "<p>What do you see in Antoine Poncet's <i>Retrofutee</i>?</p>",
     1: "<p>What aspect of Antoine Poncet's <i>Retrofutee</i> do you find to be the most remarkable?</p>"
+  };
+
+  // Mitchell
+  var promptMap = {
+    0: "<p>What aspect of Joan Mitchell's <i>Before, Again IV</i> (1985) do you find to be the most remarkable? </br> How would you interpret this title? </p>"
   };
 
   window.promptid = Math.floor(Math.random() * totalNumPrompt);

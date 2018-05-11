@@ -7,16 +7,24 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
       <script src="{{ url_for('static', filename='javascript/jquery-3.2.1.min.js') }}"></script>
       <script src="{{ url_for('static', filename='javascript/printer.js') }}"></script>
-      <script src="{{ url_for('static', filename='javascript/app.js') }}"></script>
       <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/printer.css') }}">
   </head>
   <body>
     <div style="font-family: courier" class="container" id="container">
 
-      <div class="paper scrollprinter">
-        <div class="content">
+      <div class="controls">
 
+        <a href="/" style="text-decoration: none;">Back to printer</a>
+
+      </div>
+
+      <div class="paper scrollprinter allresponses">
+        <div class="content">
+          <header>
+            <p class="timestamp">(Scroll down to read more)</p>
+          </header>
           <div class="explanation small">
+
             {% for shout in shouts %}
               <div style="margin-top: 20px; font-size: 12px; text-align: left">
                 <p style="font-weight: bold">

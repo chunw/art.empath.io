@@ -187,8 +187,16 @@ textarea {
   top: 40px;
   margin: auto;
   overflow-y: scroll;
+
+  /*
   max-height: 600px;
   margin-left: 500px;
+  */
+
+  /* 90 % */
+  max-height: 707px;
+  margin-left: 580px;
+
 }
 
 .paper.scrollprinter.allresponses header {

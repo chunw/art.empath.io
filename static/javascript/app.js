@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  setupPrompt();
+  //setupPrompt();
   animateSlideOutOfBox();
 });
 
@@ -32,7 +32,7 @@ function setupPrompt() {
 function animateSlideOutOfBox() {
   document.getElementById("date").textContent = getCurrentDate();
   document.getElementById("time").textContent = getCurrentTime();
-  $('#container').animate({ 'margin-top': '230px' }, 6000);
+  $('#container').animate({ 'margin-top': '200px' }, 6000);
 }
 
 function animateSlideIntoBox() {

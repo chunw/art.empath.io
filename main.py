@@ -37,9 +37,9 @@ def about():
 
 @app.route("/post", methods=['POST'])
 def post():
-    shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime'], "promptid" : request.form['promptid']}
+    shout = {"name":request.form['name'], "message":request.form['message'],  "date": request.form['date'], "time": request.form['time'], "datetime": request.form['datetime']}
     shout_id = collection.insert(shout)
-    prompt_id = shout["promptid"]
+    #prompt_id = shout["promptid"]
     return jsonify("")
 
 @app.route("/random", methods=['GET'])

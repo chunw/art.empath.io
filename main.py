@@ -11,7 +11,7 @@ from pymongo import MongoClient
 #db = client['heroku_x9wjh6t4']
 
 client = MongoClient() # local database at default port
-#db = client['shoutouts'] # Rothko
+db = client['shoutouts'] # Rothko
 db = client['shoutout_mitchell']
 #db = client['shoutout_poncet']
 collection = db.shoutouts
